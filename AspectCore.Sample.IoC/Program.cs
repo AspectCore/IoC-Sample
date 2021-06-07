@@ -1,9 +1,10 @@
 ﻿using System;
 using AspectCore.Configuration;
-using AspectCore.Injector;
 using AspectCore.DynamicProxy;
 using AspectCore.Sample.IoC.Classes;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using AspectCore.DependencyInjection;
 
 namespace AspectCore.Sample.IoC
 {
@@ -12,7 +13,7 @@ namespace AspectCore.Sample.IoC
         static void Main(string[] args)
         {
             //创建一个容器
-            IServiceContainer services = new ServiceContainer();
+            var services = new ServiceContext();
 
             services.Configure(config =>
             {

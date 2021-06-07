@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspectCore.Core" Version="0.2.0-preview-final" />
+    <PackageReference Include="AspectCore.Core" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

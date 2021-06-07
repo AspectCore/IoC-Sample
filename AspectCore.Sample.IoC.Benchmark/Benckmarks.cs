@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AspectCore.DependencyInjection;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Attributes.Columns;
 using Autofac;
-using AspectCore.Injector;
 using AspectCore.Sample.IoC.Classes;
 
 namespace AspectCore.Sample.IoC.Benchmark
@@ -25,12 +24,12 @@ namespace AspectCore.Sample.IoC.Benchmark
             containerBuilder.RegisterType<SampleService2>().As<ISampleService>().InstancePerDependency();
             container = containerBuilder.Build();
 
-            var serviceContainer = new ServiceContainer();
-            serviceContainer.AddType<ILogger, Logger>(Lifetime.Transient);
-            serviceContainer.AddType<ITaskService, TaskService>(Lifetime.Transient);
-            serviceContainer.AddType<ISampleRepository, SampleRepository>(Lifetime.Transient);
-            serviceContainer.AddType<ISampleService, SampleService2>(Lifetime.Transient);
-            serviceResolver = serviceContainer.Build();
+            var serviceContext = new ServiceContext();
+            serviceContext.AddType<ILogger, Logger>(Lifetime.Transient);
+            serviceContext.AddType<ITaskService, TaskService>(Lifetime.Transient);
+            serviceContext.AddType<ISampleRepository, SampleRepository>(Lifetime.Transient);
+            serviceContext.AddType<ISampleService, SampleService2>(Lifetime.Transient);
+            serviceResolver = serviceContext.Build();
         }
 
         [Benchmark]
