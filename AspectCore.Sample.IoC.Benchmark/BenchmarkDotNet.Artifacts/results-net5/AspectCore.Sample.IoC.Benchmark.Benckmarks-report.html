@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>AspectCore.Sample.IoC.Benchmark.Benckmarks-20210604-191255</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19042.985 (20H2/October2020Update)
+Intel Xeon CPU E5-2667 v4 3.20GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK=5.0.203
+  [Host]     : .NET 5.0.6 (5.0.621.22011), X64 RyuJIT
+  DefaultJob : .NET 5.0.6 (5.0.621.22011), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                   Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th> Min</th><th>  Q1</th><th>Median</th><th>  Q3</th><th> Max</th><th> Op/s</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Autofac_Sample_Resolve</td><td>452.8 ns</td><td>9.04 ns</td><td>16.77 ns</td><td>2.56 ns</td><td>433.9 ns</td><td>438.0 ns</td><td>447.7 ns</td><td>465.6 ns</td><td>490.1 ns</td><td>2,208,512.1</td><td>0.0706</td><td>-</td><td>-</td><td>928 B</td>
+</tr><tr><td>AspectCore_Sample_Resolve</td><td>110.7 ns</td><td>2.22 ns</td><td>3.46 ns</td><td>0.61 ns</td><td>106.7 ns</td><td>107.7 ns</td><td>110.0 ns</td><td>112.8 ns</td><td>119.5 ns</td><td>9,029,667.1</td><td>0.0134</td><td>-</td><td>-</td><td>176 B</td>
+</tr><tr><td>Autofac_PropertyInjection</td><td>1,252.4 ns</td><td>22.31 ns</td><td>29.78 ns</td><td>5.96 ns</td><td>1,223.2 ns</td><td>1,230.1 ns</td><td>1,240.8 ns</td><td>1,266.9 ns</td><td>1,315.7 ns</td><td>798,483.9</td><td>0.1335</td><td>-</td><td>-</td><td>1,768 B</td>
+</tr><tr><td>AspectCore_PropertyInjection</td><td>378.1 ns</td><td>7.61 ns</td><td>11.39 ns</td><td>2.08 ns</td><td>359.9 ns</td><td>367.4 ns</td><td>377.6 ns</td><td>386.3 ns</td><td>400.9 ns</td><td>2,644,747.8</td><td>0.0391</td><td>-</td><td>-</td><td>512 B</td>
+</tr><tr><td>Autofac_ConstructorInjection</td><td>1,402.3 ns</td><td>17.69 ns</td><td>13.81 ns</td><td>3.99 ns</td><td>1,386.5 ns</td><td>1,393.3 ns</td><td>1,397.0 ns</td><td>1,406.8 ns</td><td>1,433.6 ns</td><td>713,123.1</td><td>0.1545</td><td>-</td><td>-</td><td>2,032 B</td>
+</tr><tr><td>AspectCore_ConstructorInjection</td><td>380.7 ns</td><td>7.67 ns</td><td>13.63 ns</td><td>2.16 ns</td><td>361.1 ns</td><td>371.4 ns</td><td>375.3 ns</td><td>391.4 ns</td><td>412.1 ns</td><td>2,626,562.3</td><td>0.0439</td><td>-</td><td>-</td><td>576 B</td>
+</tr></tbody></table>
+</body>
+</html>
